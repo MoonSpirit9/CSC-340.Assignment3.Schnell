@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title>Books</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	   <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Arsenal&family=Philosopher&display=swap" rel="stylesheet">
+	   
+	   <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
+
+    </head>
+	<style>
+	div.a {
+		width: 100%;
+		height: 135vh;
+		background: linear-gradient(
+			to top,
+			white 0%,
+			white 50%,
+			grey 75%,
+			grey 100%
+		);
+		}
+		
+		h1 {font-size: 90px;}
+		
+		td {font-size: 24px;}
+		
+		th {font-size: 32px;}
+		
+		table {margin: 0 20px 20px 0;}
+		
+		.w3-arsenal {
+		font-family: Arsenal;
+		}
+		
+	
+	</style>
+    <body>
+		
+	   <div class="a w3-arsenal">
+		<h1 style="text-align:center; font-family: Philosopher;">Book List</h1>
+	   
+       <div class="w3-container w3-display-middle w3-teal w3-border">
+
+                <table class="w3-table w3-xlarge w3-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+							<th>Author</th>
+							<th>ISBN</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="book : ${bookList}">
+                            <td> <a th:href="@{/book/id={id}(id=${book.id})}" th:text=" ${book.id}" > </a></td>                           
+                            <td th:text=" ${book.title}"></td>
+							<td th:text=" ${book.author}"></td>
+							<td th:text=" ${book.isbn}"></td>
+                            <td th:text=" ${book.price}"></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+				<div style="align-content: center; font-size: 16px;">
+                <p class="my-5">
+                    <a href="/book/new-book" class="btn btn-primary" >Add Book</a>
+                </p>
+            </div>
+
+
+        </div>
+		 
+    </body>
+</html>

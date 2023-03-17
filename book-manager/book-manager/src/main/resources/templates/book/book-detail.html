@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title>Book Info</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		 <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Arsenal&family=Philosopher&display=swap" rel="stylesheet">
+	   
+	   <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
+		
+    </head>
+	<style>
+	
+		div.a {
+		width: 100%;
+		height: 135vh;
+		background: linear-gradient(
+			to top,
+			white 0%,
+			white 50%,
+			grey 75%,
+			grey 100%
+		);
+		}
+		
+		.w3-arsenal {
+			font-family: Arsenal;
+			}
+		
+		h5 {font-size: 32px;}
+		
+	</style>
+    <body>
+		<div class="a w3-arsenal">
+		<h1 style="text-align:center; font-size: 72px; font-family: Philosopher">Book Info</h1>
+		
+        <div class="w3-container w3-display-middle w3-padding w3-teal w3-arsenal">
+            
+            <div class="w3-panel w3-card-2" style="width: 18rem; font-size: 20px">                
+                <div class="card-body">
+                    <h5 class="card-title">Book</h5>
+                    <p class="card-text" th:text=" 'ID: '+ ${book.id}" />
+                    <p class="card-text" th:text="'Title: '+${book.title}" />
+					<p class="card-text" th:text="'Author: '+${book.author}" />
+					<p class="card-text" th:text="'ISBN: '+${book.isbn}" />
+                    <p class="card-text" th:text="'Price: '+${book.price}" />                        
+                    <a th:href="@{/book/update/id={id}(id=${book.id})}" class="btn btn-primary">Edit</a>
+                    <a th:href="@{/book/delete/id={id}(id=${book.id})}" class="btn btn-primary">Delete</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
